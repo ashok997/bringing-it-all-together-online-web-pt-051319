@@ -2,7 +2,7 @@ class Dog
   
   attr_accessor :name, :breed, :id
   
-  def initialize (name: name, breed: breed, id: id)
+  def initialize (name:, breed:, id: nil)
     @name = name
     @breed = breed
     @id = id
@@ -74,10 +74,9 @@ class Dog
 
     if !dog.empty?
       dog_data = dog[0]
-      binding.pry
       dog = Dog.new(id: dog_data[0], name: dog_data[1], breed: dog_data[2])
     else
-      dog = self.create(dog_hash)
+      dog = self.create()
     end
     dog
   end
